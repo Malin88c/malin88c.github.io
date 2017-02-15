@@ -7,14 +7,15 @@
 				let ajax = new XMLHttpRequest();
 				ajax.open('get', url);
 				ajax.onreadystatechange = function () {
-					if (ajax.status == 200 && ajax.readyState == 4)
-						
+					if (ajax.status == 200 && ajax.readyState == 4) {
 						let responseJson = JSON.parse(ajax.responseText)
-						let div = document.getElementById('box').innerHTML;  
-					
-					let x in responseJson{
-						div.innerHTML += x;
+						let div = document.getElementById('box');
+
+						for (let x in responseJson) {
+							div.innerHTML += x + ' : ' + responseJson[x] + '<br/>';
+						}
 					}
+
 
 				}
 				ajax.send();
