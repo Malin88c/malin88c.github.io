@@ -10,10 +10,10 @@
 					if (ajax.status == 200 && ajax.readyState == 4)
 						
 						let responseJson = JSON.parse(ajax.responseText)
-						      
+						let div = document.getElementById('box').innerHTML;  
 					
 					let x in responseJson{
-						document.getElementById("box").innerHTML;
+						div.innerHTML += x;
 					}
 
 				}
