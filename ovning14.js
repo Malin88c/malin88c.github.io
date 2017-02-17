@@ -18,4 +18,5 @@
 	}
 
 
-	ReactDOM.render( < TranslateList lista = {list}/>, document.getElementById('react-app')  )
+	ReactDOM.render( <TranslateList lista = {list}/>, document.getElementById('react-app')  )
+				
