@@ -6,25 +6,17 @@
 		word: 'hav'
 		, translation: 'ocean'
 		, id: 2
-	}]
+	}];
 
 	class TranslateList extends React.Component {
+		
+		render(){
+			const newList = this.props.lista.map(item => (<li key={item.id}>({item.word} = {item.translation}) ));
+		}
+		
+		return(<ul>{newList}</ul>);			
+	}
 
-		render() {
-			const newList = this.props.lista.map(item => ( < li key = {
-					item.id
-				} > () {
-					item.katt
-				} = {
-					item.translation
-				}) < /li> )
-				return ( < ul > {
-						newList
-					} < /ul> )
-				}
-			}
-		};
-	};
 
 	ReactDOM.render( < TranslateList lista = {
 		list
