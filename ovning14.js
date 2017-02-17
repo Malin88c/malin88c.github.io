@@ -23,8 +23,8 @@
 					} < /ul> )
 				}
 			}
-		}
-	}
+		};
+	};
 
 	ReactDOM.render( < TranslateList lista = {
 		list
