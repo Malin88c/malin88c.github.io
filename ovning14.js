@@ -12,11 +12,12 @@
 		
 		render(){
 			const newList = this.props.lista.map(item => (<li key={item.id}>({item.word} = {item.translation}) ));
+			return(<ul>{newList}</ul>);		
 		}
 		
-		return(<ul>{newList}</ul>);			
+			
 	}
 
 
-	ReactDOM.render( <TranslateList lista = {list}/>, document.getElementById('react-app')  )
+	ReactDOM.render( <TranslateList lista = {list}/>, document.getElementById('react-app')  );
 				
