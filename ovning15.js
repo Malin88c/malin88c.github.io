@@ -25,10 +25,6 @@ class App extends React.Component {
   }
 }
 
-
-
-
-
 class FormComponent extends React.Component {
   render() {
     return (
@@ -58,5 +54,5 @@ class Info extends React.Component {
 
 ReactDOM.render(
   <App/>,
-  document.getElementById('react-app')
+  document.getElementById('app')
 );
