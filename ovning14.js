@@ -8,18 +8,38 @@
 		, id: 2
 	}];
 
-	class TranslateList extends React.Component {
-		
-		render(){
-			const newList = this.props.lista.map(item => (<li key={item.id}>({item.word} + '=' + {item.translation}) ));
-			
-			return(<ul>{list}</ul>);		
-		}
-		
-			
+
+class TranslatedList extends React.Component{
+	render(){
+		return (<p>{list}<p>);
 	}
+}
+
+ReactDOM.render(
+				<TranslateList/>, document.getElementById('react-app')
+			   );
+
+
+	/*class TranslateList extends React.Component {
+
+			render() {
+				const newList = this.props.lista.map(item => ( < li key = {
+					item.id
+				} > ({
+					item.word
+				} + '=' + {
+					item.translation
+				})));
+
+				return ( < ul > {
+						list
+					} < /ul>);		
+				}
+
+
+			}
 
 
 	ReactDOM.render( <TranslateList lista = {list}></TranslateList>, 
 				   document.getElementById('react-app')  );
-				
+				*/
