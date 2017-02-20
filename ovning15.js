@@ -28,7 +28,7 @@ class FormComponent extends React.Component {
 
   render() {
     return (
-      <form>this.props.children</form>)
+      <form>{this.props.children}</form>)
   };
 }
 
