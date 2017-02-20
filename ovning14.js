@@ -9,10 +9,10 @@
 	}];
 
 
-class TestHej extends React.Component{
+class TranslatedList extends React.Component{
 
 render(){
-const newList = list.map(item => <li key ={item.id}>{item.word + '=' + item.translation}</li>);
+const newList = this.props.lista.map(item => <li key ={item.id}>{item.word + '=' + item.translation}</li>);
 return <ul>{newList}</ul>
 }
 
@@ -20,5 +20,5 @@ return <ul>{newList}</ul>
 
 ReactDOM.render
 (
-  <TestHej/>, document.getElementById('react-app')
+  <TranslatedList lista={lista}/>, document.getElementById('react-app')
 );
