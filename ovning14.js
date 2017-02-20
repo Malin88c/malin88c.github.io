@@ -15,7 +15,8 @@ class TranslatedList extends React.Component{
 	}
 }
 
-ReactDOM.render(
-				<p>test</p>, document.getElementById('react-app')
-			   );
 
+      ReactDOM.render(
+        <h1>TEST</h1>,
+        document.getElementById('react-app')
+      );
