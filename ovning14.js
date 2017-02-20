@@ -13,7 +13,7 @@
 		render(){
 			const newList = this.props.lista.map(item => (<li key={item.id}>({item.word} + '=' + {item.translation}) ));
 			
-			return(<ul>{newList}</ul>);		
+			return(<ul>{list}</ul>);		
 		}
 		
 			
