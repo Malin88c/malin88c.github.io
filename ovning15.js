@@ -2,8 +2,8 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this inputChange = this.inputChange.bind(this);
-    this state = {
+    this.inputChange = this.inputChange.bind(this);
+    this.state = {
       inputValue: ''
     };
   }
