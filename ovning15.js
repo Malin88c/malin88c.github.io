@@ -15,7 +15,11 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-			<FormComponent/>
+			<FormComponent>
+		<InputComponent changeEvent={this.inputChange}/>
+				<InputComponent changeEvent={this.inputChange} />
+
+		</FormComponent>
 			</div>
     )
   }
