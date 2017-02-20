@@ -12,7 +12,7 @@
 class TranslatedList extends React.Component{
 
 render(){
-const newList = this.props.lista.map(item => <li key ={item.id}>{item.word + '=' + item.translation}</li>);
+const newList = this.props.lista.map(item => <li key ={item.id}>{item.word + ' på engelska är ' + item.translation}</li>);
 return <ul>{newList}</ul>
 }
 
