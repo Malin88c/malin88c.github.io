@@ -58,5 +58,5 @@ class Info extends React.Component {
 
 ReactDOM.render(
   <App/>,
-  document.getElementById('app')
+  document.getElementById('react-app')
 );
