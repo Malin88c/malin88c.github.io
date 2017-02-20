@@ -20,5 +20,5 @@ return <ul>{newList}</ul>
 
 ReactDOM.render
 (
-  <TranslatedList lista={lista}/>, document.getElementById('react-app')
+  <TranslatedList lista={list}/>, document.getElementById('react-app')
 );
