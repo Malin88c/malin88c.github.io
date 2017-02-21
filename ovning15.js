@@ -43,7 +43,7 @@ class InputComponent extends React.Component {
 class ResultComponent extends React.Component{
   render(){
     return(
-    <input readOnly/>  
+    <input type='text' readOnly/>  
     )
   }
 }
