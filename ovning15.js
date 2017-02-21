@@ -18,7 +18,7 @@ class App extends React.Component {
 			<FormComponent>
 		<InputComponent changeEvent={this.inputChange}/>
 				<InputComponent changeEvent={this.inputChange} />
-
+        <ResultComponent />
 		</FormComponent>
 			</div>
     )
