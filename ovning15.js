@@ -28,7 +28,7 @@ class FormComponent extends React.Component {
 
   render() {
     return (
-      <form>{this.props.children}funkar</form>)
+      <form>{this.props.children}</form>)
   };
 }
 
@@ -36,6 +36,14 @@ class InputComponent extends React.Component {
   render() {
     return (
       <input type='text' onChange={this.props.changeEvent}/>
+    )
+  }
+}
+
+class ResultComponent extends React.Component{
+  render(){
+    return(
+    <input readOnly/>  
     )
   }
 }
