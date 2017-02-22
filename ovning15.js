@@ -45,6 +45,7 @@ class ResultComponent extends React.Component{
 
 constructor(){
   super();
+  this.resultChange = this.resultChange.bind(this);
   this.state = {
     resultValue: ''
   };
