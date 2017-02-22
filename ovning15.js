@@ -76,7 +76,10 @@ getSum(){
 
 class ErrorMessageComponent extends React.Component{
   render(){
+
+    return(
     <label>ErrorErrorError</label>
+    )
   }
 }
 
