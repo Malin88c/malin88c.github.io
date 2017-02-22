@@ -18,7 +18,7 @@ class App extends React.Component {
 			  <FormComponent>
 		      <InputComponent changeEvent={this.inputChange}/>
 				  <InputComponent changeEvent={this.inputChange} />
-          <ResultComponent />
+          <ResultComponent changeEvent={this.resultChange} />
           <ErrorMessageComponent />
 		    </FormComponent>
 			</div>
@@ -50,7 +50,7 @@ constructor(){
   };
 }
 
-resultValue(event){
+resultChange(event){
   this.setState({
   resultValue: getSum()
   })
@@ -76,7 +76,6 @@ getSum(){
 
 class ErrorMessageComponent extends React.Component{
   render(){
-
     return(
     <label>ErrorErrorError</label>
     )
