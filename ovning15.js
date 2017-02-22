@@ -15,11 +15,12 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-			<FormComponent>
-		<InputComponent changeEvent={this.inputChange}/>
-				<InputComponent changeEvent={this.inputChange} />
-        <ResultComponent />
-		</FormComponent>
+			  <FormComponent>
+		      <InputComponent changeEvent={this.inputChange}/>
+				  <InputComponent changeEvent={this.inputChange} />
+          <ResultComponent />
+          <ErrorMessageComponent />
+		    </FormComponent>
 			</div>
     )
   }
@@ -35,16 +36,47 @@ class FormComponent extends React.Component {
 class InputComponent extends React.Component {
   render() {
     return (
-      <input type='text' onChange={this.props.changeEvent}/>
+      <input className='inputField' type='text' onChange={this.props.changeEvent}/>
     )
   }
 }
 
 class ResultComponent extends React.Component{
+
+constructor(){
+  super(props);
+  this.state = {
+    resultValue: ''
+  };
+}
+
+resultValue(event){
+  this.setState({
+  resultValue: getSum()
+  })
+}
+
+getSum(){
+ let inputs = document.getElementsByClassName('inputField');
+ let sum;
+ 
+ for(i = 0; i < inputs.length; i++){
+   sum += inputs[i].value;
+ }
+  return sum;
+}
+
   render(){
+
     return(
     <input type='text' readOnly/>  
     )
+  }
+}
+
+class ErrorMessageComponent extends React.Component{
+  render(){
+    <label>ErrorErrorError</label>
   }
 }
 
