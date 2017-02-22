@@ -43,8 +43,8 @@ class InputComponent extends React.Component {
 
 class ResultComponent extends React.Component{
 
-constructor(props){
-  super(props);
+constructor(){
+  super();
   this.state = {
     resultValue: ''
   };
