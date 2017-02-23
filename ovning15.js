@@ -18,7 +18,7 @@ class App extends React.Component {
     this.setState({
       input1: value1,
       input2: value2     
-    }, () => getSum())
+    }, () => this.getSum())
   }
 
 getSum(){
