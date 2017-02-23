@@ -12,9 +12,12 @@ class App extends React.Component {
   }
 
   inputChange(event) {
+  let value1 = document.getElementById('input1').value;
+  let value2 = document.getElementById('input2').value; 
+
     this.setState({
-      input1: document.getElementById('input1').value,
-      input2: document.getElementById('input2').value      
+      input1: value1,
+      input2: value2     
     }, () => getSum())
   }
 
@@ -40,9 +43,9 @@ else{
 			  <FormComponent>
 		      <InputComponent id='input1' changeEvent={this.inputChange}/>
 				  <InputComponent id='input2' changeEvent={this.inputChange} />
-          <ResultComponent result = {this.props.result} changeEvent={this.resultChange} />
-          <ErrorMessageComponent />
+          <ResultComponent result = {this.props.result} />          
 		    </FormComponent>
+        <p>{this.state.errormessage}</p>
 			</div>
     )
   }
@@ -64,38 +67,13 @@ class InputComponent extends React.Component {
 }
 
 class ResultComponent extends React.Component{
-
-constructor(){
-  super();
-  this.resultChange = this.resultChange.bind(this);
-  this.state = {
-    resultValue: ''
-  };
-}
-
-resultChange(event){
-  this.setState({
-  resultValue: getSum()
-  })
-}
-
-
-
-  render(){
-
-    return(
-    <input type='text' readOnly onChange={this.props.changeEvent}/>  
-    )
-  }
-}
-
-class ErrorMessageComponent extends React.Component{
   render(){
     return(
-    <label>ErrorErrorError</label>
-    )
-  }
+      <input type='text' readOnly value={this.props.result}/>  
+  )}
 }
+
+
 
 ReactDOM.render (
 	  <App/>,
