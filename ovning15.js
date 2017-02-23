@@ -49,10 +49,10 @@ else if(this.state.operator === 'subtract'){
   sum = input1 - input2
 }
 else if(this.state.operator === 'divide'){
-  sum = input1 - input2
+  sum = input1 / input2
 }
 else if(this.state.operator === 'multiply'){
-  sum = input1 - input2
+  sum = input1 * input2
 }
   this.setState({result: sum, errormessage: ''});
 }
