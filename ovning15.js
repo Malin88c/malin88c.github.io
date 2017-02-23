@@ -28,7 +28,7 @@ class App extends React.Component {
     let op = event.target.value;
     this.setState({
       operator: op
-    })
+    }, () => this.getSum())
 
 
   }
