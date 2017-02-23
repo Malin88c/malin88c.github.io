@@ -7,6 +7,7 @@ class App extends React.Component {
       input1: 0,
       input2: 0,
       result: 0,
+      operator: 'add',
       errormessage: ''
     };
   }
@@ -21,6 +22,10 @@ class App extends React.Component {
     }, () => this.getSum())
   }
 
+  choiceOfOperator(event){
+
+  }
+
 getSum(){
  let input1 = parseFloat(this.state.input1);
  let input2 = parseFloat(this.state.input2);
@@ -30,18 +35,35 @@ if(Number.isNaN(input1) || Number.isNaN(input2) ){
   this.setState({errormessage: 'Ogiltiga tal', result: NaN })
 }
 
-else{
+else if(this.state.operator === 'add'){
   sum = input1 + input2;
-
+}
+else if(this.state.operator === 'subtract'){
+  sum = input1 - input2
+}
+else if(this.state.operator === 'divide'){
+  sum = input1 - input2
+}
+else if(this.state.operator === 'multiply'){
+  sum = input1 - input2
+}
   this.setState({result: sum, errormessage: ''});
 }
-}
+
   
   render() {
     return (
       <div id='app'>
 			  <FormComponent>
-		      <input id='input1' type='text' value={this.state.input1} onChange={this.inputChange}/> + 
+		      <input id='input1' type='text' value={this.state.input1} onChange={this.inputChange}/> 
+
+          <select value={this.state.operator} onChange={this.choiceOfOperator}>
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="divide">/</option>
+            <option value="multiply">*</option>
+          </select>
+
 				  <input id='input2' type='text' value={this.state.input2} onChange={this.inputChange} /> = 
           <ResultComponent result = {this.state.result} />          
 		    </FormComponent>
@@ -50,6 +72,7 @@ else{
     )
   }
 }
+
 class FormComponent extends React.Component {
   render() {
     return (
