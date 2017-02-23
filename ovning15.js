@@ -4,8 +4,8 @@ class App extends React.Component {
     super(props);
     this.inputChange = this.inputChange.bind(this);
     this.state = {
-      input1: 0,
-      input2: 0,
+      input1: '',
+      input2: '',
       result: 0,
       errormessage: ''
     };
