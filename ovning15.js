@@ -7,6 +7,7 @@ class App extends React.Component {
       input1: 0,
       input2: 0,
       result: 0,
+      operator: 'add',
       errormessage: ''
     };
   }
