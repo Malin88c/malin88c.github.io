@@ -23,8 +23,8 @@ class App extends React.Component {
 
   choiceOfOperator(event){
 
-    let name = event.target.name;
-    this.setState({operator: name})
+    let op = event.target.value;
+    this.setState({operator: op})
 
 
   }
@@ -61,10 +61,10 @@ else if(this.state.operator === 'multiply'){
 		      <input id='input1' type='text' value={this.state.input1} onChange={this.inputChange}/> 
 
           <select value={this.state.operator} onChange={this.choiceOfOperator}>
-            <option name="add">+</option>
-            <option name="subtract">-</option>
-            <option name="divide">/</option>
-            <option name="multiply">*</option>
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="divide">/</option>
+            <option value="multiply">*</option>
           </select>
 
 				  <input id='input2' type='text' value={this.state.input2} onChange={this.inputChange} /> = 
