@@ -3,6 +3,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.inputChange = this.inputChange.bind(this);
+    this.choiceOfOperator = this.choiceOfOperator.bind(this);
     this.state = {
       input1: 0,
       input2: 0,
@@ -25,7 +26,9 @@ class App extends React.Component {
   choiceOfOperator(event){
 
     let op = event.target.value;
-    this.setState({operator: op})
+    this.setState({
+      operator: op
+    })
 
 
   }
