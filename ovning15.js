@@ -70,7 +70,7 @@ getSum(){
   render(){
 
     return(
-    <input type='text' readOnly/>  
+    <input type='text' readOnly onChange={this.props.resultChange}/>  
     )
   }
 }
