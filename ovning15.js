@@ -51,7 +51,6 @@ else{
   }
 }
 class FormComponent extends React.Component {
-
   render() {
     return (
       <form>{this.props.children}</form>)
@@ -59,6 +58,14 @@ class FormComponent extends React.Component {
 }
 
 class InputComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.inputChange = this.inputChange.bind(this);
+    this.state = {
+      value: 0
+    };
+  }
+
   render() {
     return (
       <input className='inputField' type='text' onChange={this.props.changeEvent}/>
