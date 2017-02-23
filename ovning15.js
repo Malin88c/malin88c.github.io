@@ -41,8 +41,8 @@ else{
     return (
       <div id='app'>
 			  <FormComponent>
-		      <input id='input1' type='number' value={this.state.input1} changeEvent={this.inputChange}/>
-				  <input id='input2' type='number' value={this.state.input2} changeEvent={this.inputChange} />
+		      <input id='input1' type='text' value={this.state.input1} changeEvent={this.inputChange}/>
+				  <input id='input2' type='text' value={this.state.input2} changeEvent={this.inputChange} />
           <ResultComponent result = {this.props.result} />          
 		    </FormComponent>
         <p>{this.state.errormessage}</p>
