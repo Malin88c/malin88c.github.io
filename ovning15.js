@@ -43,7 +43,7 @@ else{
 			  <FormComponent>
 		      <input id='input1' type='text' value={this.state.input1} onChange={this.inputChange}/>
 				  <input id='input2' type='text' value={this.state.input2} onChange={this.inputChange} />
-          <ResultComponent result = {this.props.result} />          
+          <ResultComponent result = {this.state.result} />          
 		    </FormComponent>
         <p>{this.state.errormessage}</p>
 			</div>
