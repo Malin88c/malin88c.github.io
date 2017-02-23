@@ -26,7 +26,7 @@ getSum(){
  let input2 = this.state.input2;
  let sum = 0;
  
-if(Number.NaN(input1) || Number.NaN(input2) ){
+if(Number.isNaN(input1) || Number.isNaN(input2) ){
   this.setState({errormessage: 'Ogiltiga tal', result: NaN })
 }
 
