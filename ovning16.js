@@ -14,11 +14,13 @@ componentDidMount(){
 
 fetchData(){
     fetch('http://forverkliga.se/JavaScript/api/simple.php?world')
-    .then(function(json){
-       this.setState({data: json})
+    .then(function(response){
+       return response.json;
     })
 
-    .then()
+    .then(function(json){
+        this.setState({data: json})
+    })
 }
     render(){
         <div>
