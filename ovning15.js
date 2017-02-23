@@ -22,8 +22,8 @@ class App extends React.Component {
   }
 
 getSum(){
- let input1 = this.state.input1;
- let input2 = this.state.input2;
+ let input1 = parseFloat(this.state.input1);
+ let input2 = parseFloat(this.state.input2);
  let sum = 0;
  
 if(Number.isNaN(input1) || Number.isNaN(input2) ){
