@@ -13,8 +13,8 @@ class App extends React.Component {
 
   inputChange(event) {
     this.setState({
-      input1 = getElementById('input1').value,
-      input2 = getElementById('input2').value      
+      input1: getElementById('input1').value,
+      input2: getElementById('input2').value      
     }, () => getSum())
   }
 
