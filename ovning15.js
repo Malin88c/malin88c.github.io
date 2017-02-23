@@ -41,8 +41,8 @@ else{
     return (
       <div id='app'>
 			  <FormComponent>
-		      <input id='input1' type='text' value={this.state.input1} changeEvent={this.inputChange}/>
-				  <input id='input2' type='text' value={this.state.input2} changeEvent={this.inputChange} />
+		      <input id='input1' type='text' value={this.state.input1} onChange={this.inputChange}/>
+				  <input id='input2' type='text' value={this.state.input2} onChange={this.inputChange} />
           <ResultComponent result = {this.props.result} />          
 		    </FormComponent>
         <p>{this.state.errormessage}</p>
@@ -55,18 +55,6 @@ class FormComponent extends React.Component {
     return (
       <form>{this.props.children}</form>)
   };
-}
-
-class InputComponent extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {value: 0}
-  }
-  render() {
-    return (
-      <input className='inputField' type='text' onChange={this.props.changeEvent}/>
-    )
-  }
 }
 
 class ResultComponent extends React.Component{
