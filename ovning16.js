@@ -13,7 +13,7 @@ componentDidMount(){
 }
 
 fetchData(){
-_this = this;
+let _this = this;
     fetch('http://forverkliga.se/JavaScript/api/simple.php?world')
     .then(function(response){
        return response.json();
