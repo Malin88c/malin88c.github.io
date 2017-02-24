@@ -3,6 +3,7 @@
 
 			buttonFetch.addEventListener('click', function () {
 
+            console.log('knappen trycktes på');
 				let url = 'http://forverkliga.se/JavaScript/api/simple.php' +'?world=whatever'; ;
 
 
