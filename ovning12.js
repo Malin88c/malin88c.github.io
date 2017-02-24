@@ -17,7 +17,7 @@
                         for (var i = 0; i < json.length; i++){
                         var obj = json[i];
                         for (var x in obj){
-                        div.innerHTML += `${x}: ${json[x]}<br/>`;
+                        div.innerHTML += `${x}: ${obj[x]}<br/>`;
                             }};
 
 
