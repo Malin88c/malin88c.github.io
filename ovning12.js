@@ -14,7 +14,10 @@
 					.then(function (json) {
 						let div = document.getElementById('box');
 						for (let x in json) {
-							div.innerHTML += `${x}: ${json[x]}<br/>`;
+                            for(let y in x){
+                            	div.innerHTML += `${y}: ${json[y]}<br/>`;
+                            }
+						
                             
 						}
 					});
