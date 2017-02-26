@@ -24,24 +24,29 @@ window.addEventListener('load', function () {
 	});
 
 	lista.addEventListener('click', function (e) {
-		selectedItem = e.target;
-		var textBox = document.getElementById('message');
-		textBox.value = e.target.innerText;
-		var listItems = list.getElementsByTagName('li');
 
-		for (let i of listItems) {
-			if (i !== e.target) {
-				i.style.background = 'none';
+		if (e.target && e.target.nodeName == "LI") {
+			selectedItem = e.target;
+			var textBox = document.getElementById('message');
+			textBox.value = e.target.innerText;
+			var listItems = list.getElementsByTagName('li');
+
+			for (let i of listItems) {
+				if (i !== e.target) {
+					i.style.background = 'none';
+				}
+
 			}
 
+			if (e.target.style.backgroundColor !== 'hotpink') {
+				e.target.style.backgroundColor = 'hotpink';
+			} else {
+				e.target.style.background = 'none';
+				textBox.value = '';
+			}
 		}
 
-		if (e.target.style.backgroundColor !== 'hotpink') {
-			e.target.style.backgroundColor = 'hotpink';
-		} else {
-			e.target.style.background = 'none';
-			textBox.value = '';
-		}
+
 
 	});
 
