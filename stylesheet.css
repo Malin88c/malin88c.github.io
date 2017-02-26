@@ -2,3 +2,29 @@ button{
 	background-color: hotpink;
 }
 
+.container-6{
+	background-color: deepskyblue;
+
+}
+
+.container-7{
+	height: 750px;
+	padding-top: 200px;
+	background-image: url('Images/background.jpg');
+}
+
+.sendNameBtn{
+	background-color: hotpink;
+	padding:10px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.sendNameBtn:hover{
+	transform: scale(1.1, 1.1);
+
+}
+
+.form-label{
+	font-size: 20px;
+}
