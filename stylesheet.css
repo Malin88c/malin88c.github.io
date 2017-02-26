@@ -28,3 +28,33 @@ button{
 .form-label{
 	font-size: 20px;
 }
+
+input{
+	margin-left: 20px;
+}
+
+select{
+	margin-left: 20px;
+}
+
+.form-container{
+	background:beige;
+	height:500px;
+	border: 2px solid darkgrey;
+}
+.eq{
+	margin-left:20px;
+}
+
+#box{
+	margin-top: 20px;
+}
+
+li{
+	padding: 10px;
+	font-size: 18px;
+}
+
+#react-app{
+	background-color: lightcyan;
+}
