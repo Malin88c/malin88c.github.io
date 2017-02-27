@@ -72,10 +72,6 @@ window.addEventListener('load', function () {
 			textBox.value = '';
 		}
 
-
-
 	});
-
-
 
 });

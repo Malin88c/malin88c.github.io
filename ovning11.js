@@ -14,6 +14,7 @@
 						for (let x in responseJson) {
 							div.innerHTML += x + ' : ' + responseJson[x] + '<br/>';
 						}
+						div.innerHTML += '--------------------------------------------------------------' + '<br/>';
 					}
 
 
@@ -38,6 +39,7 @@
 						for (let x in json) {
 							div.innerHTML += x + ' : ' + json[x] + '<br/>';
 						}
+						div.innerHTML += '--------------------------------------------------------------' + '<br/>';
 					});
 
 			});
@@ -56,6 +58,7 @@
 						for (let x in json) {
 							div.innerHTML += x + ' : ' + json[x] + '<br/>';
 						}
+						div.innerHTML += '--------------------------------------------------------------' + '<br/>';
 					});
 			});
 
