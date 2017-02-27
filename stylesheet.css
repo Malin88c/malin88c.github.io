@@ -41,6 +41,7 @@ select{
 	background:beige;
 	height:500px;
 	border: 2px solid darkgrey;
+	width: auto;
 }
 .eq{
 	margin-left:20px;
@@ -61,4 +62,12 @@ li{
 
 #lista{
 	margin-top: 20px;
+}
+
+.hide{
+	display:none;
+}
+
+.show{
+	display: inline-block;
 }
