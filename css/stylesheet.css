@@ -88,3 +88,7 @@ li{
 	background-color: lightblue;
 	color: lightgray;
 }
+
+.trash-btn{
+	margin-bottom: 10px;
+}
