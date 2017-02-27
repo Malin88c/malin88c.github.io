@@ -3,20 +3,20 @@ button{
 }
 
 .container-6{
-	background-color: deepskyblue;
+	border-bottom: 2px solid darkcyan;
+	background-color: #f6f6f6;
 
 }
 
 .container-7{
 	height: 750px;
 	padding-top: 200px;
+	margin-top: 80px;
 	background-image: url('Images/background.jpg');
 }
 
 .sendNameBtn{
 	background-color: hotpink;
-	padding:10px;
-	font-size: 18px;
 	font-weight: bold;
 }
 
@@ -70,4 +70,15 @@ li{
 
 .show{
 	display: inline-block;
+}
+
+#linkToBad{
+	background-color: darkgray;
+	color:black;
+	margin-top: 15px;
+}
+
+.badBtn{
+	background-color: lightblue;
+	color: lightgray;
 }
