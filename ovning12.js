@@ -127,10 +127,18 @@
 			let three = document.getElementById('zimbabwe');
 			let four = document.getElementById('min');
 			let five = document.getElementById('continent')
+			let buttonFetch = document.getElementById('dataBtn');
+			let answersHead = document.getElementById('answersHead');
+			
+
 
 			one.style.visibility = 'visible';
 			two.style.visibility = 'visible';
 			three.style.visibility = 'visible';
 			four.style.visibility = 'visible';
 			five.style.visibility = 'visible';
+			buttonFetch.style.visibility = 'hidden';
+			answersHead.innerText = 'The answers to all your questions';
+
+			
 		}
