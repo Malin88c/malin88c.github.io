@@ -15,6 +15,12 @@ button{
 	background-image: url('Images/background.jpg');
 }
 
+.container-box{
+	height: 750px;
+	margin-top: 80px;
+}
+
+
 .sendNameBtn{
 	background-color: hotpink;
 	font-weight: bold;
