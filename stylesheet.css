@@ -40,7 +40,7 @@ select{
 .form-container{
 	background:beige;
 	height:500px;
-	border: 2px solid darkgrey;
+	border: 2px solid darkcyan;
 	width: auto;
 }
 .eq{

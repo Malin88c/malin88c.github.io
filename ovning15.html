@@ -63,35 +63,62 @@ class App extends React.Component {
   }
 
 getSum(){
- let input1 = parseFloat(this.state.input1);
- let input2 = parseFloat(this.state.input2);
+ let input1 = this.state.input1;
+ let input2 = this.state.input2;
  let sum = 0;
- let message = ''
- 
-if(!isFinite(input1) || !isFinite(input2)){
-  this.setState({errormessage: 'Du angav ett ogiltigt tal', result: 'Incorrect Value' })
-  sum = 'Incorrect Value';
-}
 
-else if(this.state.operator === 'add'){
-  sum = input1 + input2;
-}
-else if(this.state.operator === 'subtract'){
-  sum = input1 - input2
-}
-else if(this.state.operator === 'divide'){
-  if(input2 !== 0){
-    sum = input1 / input2
+ 
+for (var i=0; i < input1.length; i++) { 
+     if(input1.charAt(i) !== '0'){
+       break;
+     }
+   else{
+     input1 = input1.substring(1);
+   }}
+  for (var i=0; i < input1.length; i++) { 
+     if(input2.charAt(i) !== '0'){
+       break;
+     }
+   else{
+     input2 = input1.substring(1);
+   }}
+
+
+ if(!isFinite(input1) || !isFinite(input2))
+ { 
+   this.setState({ errormessage:  'Ange två tal som är giltiga' , result: 'Error'}); 
+   }
+
+   else{
+      input1 = parseFloat(this.state.input1);
+      input2 = parseFloat(this.state.input2);
+
+
+  if(this.state.operator === 'divide' && input2 == 0) {
+    this.setState({errormessage: 'Not allowed to divide by zero', result:'Error'})
   }
+   
   else{
-    message = 'Not allowed to divide by zero'
-  }
-}
-else if(this.state.operator === 'multiply'){
-  sum = input1 * input2
-}
-  this.setState({result: sum, errormessage: message });
-}
+    if(this.state.operator === 'add')
+    { 
+      sum = input1 + input2; 
+    } 
+    else if(this.state.operator === 'subtract')
+    { 
+      sum = input1 - input2
+    } 
+    else if(this.state.operator === 'divide')
+    { 
+        sum = input1 / input2 
+    } 
+    else if(this.state.operator === 'multiply')
+    { 
+      sum = input1 * input2 
+    } 
+    this.setState({result: sum, errormessage:'' }); }
+
+
+}   }
 
   
   render() {
