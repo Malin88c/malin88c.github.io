@@ -2,149 +2,33 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel=stylesheet type="text/css" href="stylesheet.css">	
-    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	    crossorigin="anonymous">
+	<link rel=stylesheet type="text/css" href="css/stylesheet.css">
+	<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
-	</head>
+</head>
 
 <body>
 
-
-	<h1>Övning 16</h1>
-
-    <div id="app">FAIL</div>
-	
-	<script type="text/babel">
-	
-	class App extends React.Component{
-    constructor(props){
-        super(props);
-        this.fetchData = this.fetchData(this);
-
-        this.state = {
-            data: [],
-			items: 0
-        }
-    }
-
-
-	componentDidMount(){
-
-	let _this = this;
-
-		fetch('http://forverkliga.se/JavaScript/api/simple.php?world')
-		.then(function(response){
-			if(!response.ok){
- 				throw Error("Failed to fetch data");
-			}
-
-		return response.json();
-		})
-
-		.then(function(json){
-			let count = json.length;
-			_this.setState({data: json, items: count})
-		})
-	}
-
-	fetchData(){
-
-	}
-		render(){
-			return(
-			<div>
-				<h3>Countries</h3>
-				<CountriesComponent data={this.state.data}/>
-				<p>Det finns {this.state.items} länder i listan</p>
+	<div class="container-fluid container-6">
+		<div class="row">
+			<div class="col-md-offset-5">
+				<h1>Övning 16</h1>
 			</div>
-			)
-		}
-	}
+		</div>
+	</div>
 
-	class CountriesComponent extends React.Component{
+	<div class="container">
 
-		constructor(props){
-			super(props);
+		<div id="app">
+			<h3>Failed to fetch data</h3>
+		</div>
 
-
-			this.state = {
-				selectedItem: null,
-				showDeleteButton: false
-
-				};
-
-				this.itemClicked = this.itemClicked.bind(this);
-				this.deleteItem = this.deleteItem.bind(this);
-		}
-
-			itemClicked(event, id){
-
-				event.stopPropagation();
-
-				console.log(id);
-
-				let deleteButtonCLasses = document.getElementById('delete').classList;
-
-				if(event.target.id === 'item'){
-
-					if(event.target !== this.state.selectedItem){
-						event.target.style.backgroundColor = 'hotpink';
-						deleteButtonCLasses.remove('hide');
-						deleteButtonCLasses.add('show')
-						this.setState({selectedItem: event.target});
-					}
-
-					else{
-						event.target.style.background = 'none';
-						deleteButtonCLasses.remove('show');
-						deleteButtonCLasses.add('hide')
-						this.setState({selectedItem: null})
-					}
-
-					console.log(event.target.innerHTML + ' clicked')
-
-				}
-			}
-
-			deleteItem(event, id){
-				if(event.target.id === 'delete'){
-				 this.props.onDelete(id);
-
-				 this.setState(selectedItem: null)
-				}
-				
-
-			}
-
-
-		render(){
-
-			let data = this.props.data;
-			let key = 0;
-
-			let list = data.map(x => <li id='item' key = {key++} onClick={this.itemClicked}>{x.name} 				
-                    <button id="delete" onClick={this.deleteItem} className='btn'><span className='glyphicon glyphicon-trash'></span></button>
-                
-				</li>);
-
-			let count = data.length; 
-			return(<ul>{list}</ul> )
-			
-		}
-	} 
-
-
-
-	ReactDOM.render(
-		<App/>,
-		document.getElementById('app')
-	)
-		
-	</script>
-
+	</div>
+	<script src="scripts/ovning16.js" type="text/babel"></script>
 
 </body>
 
