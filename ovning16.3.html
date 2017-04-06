@@ -31,7 +31,7 @@
 
 	<script type="text/babel">
 
-    
+        
         
         
         class App extends React.Component{
@@ -84,7 +84,7 @@
             render(){
                 const list = this.props.data.map(
                     country => 
-                    <li><Country onClick={this.clickFunction.bind(this)}/></li>
+                    <li><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
                 )
 
                 return(
@@ -99,7 +99,7 @@
             render()
             {
                 return(
-                     <label className="countryName">{country.name}</label>
+                     <label className="countryName">{this.props.country.name}</label>
                 );
             }
         }
@@ -107,6 +107,7 @@
 
 
         ReactDOM.render(<App/>, document.getElementById('app'));
+
 
 
 	</script>
