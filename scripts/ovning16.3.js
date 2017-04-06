@@ -1,37 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	    crossorigin="anonymous">
-	<link rel=stylesheet type="text/css" href="css/stylesheet.css">
-	<script src="https://unpkg.com/react@latest/dist/react.js"></script>
-	<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
-	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-
-</head>
-
-<body>
-
-	<div class="container-fluid container-6">
-		<div class="row">
-			<div class="col-md-offset-5">
-				<h1>Övning 16</h1>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-
-		<div id="app">
-			<h3>Failed to fetch data</h3>
-		</div>
-
-	</div>
-
-	<script type="text/babel">
-
-    
         
         
         class App extends React.Component{
@@ -79,7 +45,7 @@
 
                 const list = this.props.data.map(
                     country => 
-                    <li>{country.name}</li>
+                    <li key={key++}>{country.name}</li>
                 )
 
 
@@ -98,11 +64,4 @@
 
 
 
-        ReactDOM.render(<App/>, document.getElementById('app'));
-
-
-	</script>
-
-</body>
-
-</html>
+        ReactDom.render(<App/>, document.getElementById('app'));
