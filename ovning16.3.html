@@ -30,8 +30,7 @@
 	</div>
 
 	<script type="text/babel">
-
-            
+    
         
         
         class App extends React.Component{
@@ -82,9 +81,10 @@
             }
 
             render(){
+                let key= 0;
                 const list = this.props.data.map(
-                    country, index => 
-                    <li key={index} ><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
+                    country => 
+                    <li key={key++} ><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
                 )
 
                 return(
@@ -107,8 +107,6 @@
 
 
         ReactDOM.render(<App/>, document.getElementById('app'));
-
-
 
 
 	</script>
