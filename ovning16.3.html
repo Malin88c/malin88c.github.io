@@ -75,14 +75,17 @@
                 super(props);
             }
 
-            render(){
+            clickFunction(event){
+                console.log('Country clicked');
+                console.log(event.target);
+                
+            }
 
+            render(){
                 const list = this.props.data.map(
                     country => 
-                    <li>{country.name}</li>
+                    <li><Country onClick={this.clickFunction.bind(this)}/></li>
                 )
-
-
 
                 return(
                     <ul>{list}</ul>
@@ -93,7 +96,12 @@
 
 
         class Country extends React.Component{
-            
+            render()
+            {
+                return(
+                     <label className="countryName">{country.name}</label>
+                );
+            }
         }
 
 
