@@ -98,6 +98,7 @@
 
                 return(
                     <ul>{list}</ul>
+                    <p>{this.props.data.Length()}</p>
                 );
             }
             
@@ -108,7 +109,9 @@
             render()
             {
                 return(
-                     <label className="countryName" onClick={this.props.onClick}>{this.props.country.name}</label>
+                     <label className="countryName" onClick={this.props.onClick}>{this.props.country.name}</label><br/>
+                     <
+
                 );
             }
         }
