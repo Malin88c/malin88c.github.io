@@ -90,7 +90,7 @@
             }
 
             render(){
-                let key= 0;
+                let key= -1;
                 const list = this.props.data.map(
                     country => 
                     <li key={key++}><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
@@ -98,7 +98,7 @@
 
                 return(
                     <ul>{list}</ul>
-                    <p>{this.props.data.length}</p>
+                    <p>Number of countries: {key}</p>
                 );
             }
             
