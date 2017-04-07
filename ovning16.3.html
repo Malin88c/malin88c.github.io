@@ -31,6 +31,7 @@
 
 	<script type="text/babel">
     
+            
         
         
         class App extends React.Component{
@@ -72,19 +73,26 @@
 
             constructor(props){
                 super(props);
+
+                this.state = {
+                    selectedCountry: null
+                }
             }
 
             clickFunction(event){
                 console.log('Country clicked');
                 console.log(event.target);
+
+                this.setState(
+                    {selectedCountry: event.target.id}
+                )
                 
             }
 
             render(){
-                let key= 0;
                 const list = this.props.data.map(
                     country => 
-                    <li key={key++} ><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
+                    <Country country={country} onClick={this.clickFunction.bind(this)}/>
                 )
 
                 return(
@@ -98,8 +106,10 @@
         class Country extends React.Component{
             render()
             {
+                let key= 0;
+
                 return(
-                     <label className="countryName" onClick={this.props.onClick}>{this.props.country.name}</label>
+                     <li key={key++}><label className="countryName">{this.props.country.name}</label></li>
                 );
             }
         }
@@ -107,6 +117,7 @@
 
 
         ReactDOM.render(<App/>, document.getElementById('app'));
+
 
 
 	</script>
