@@ -81,18 +81,20 @@
 
             clickFunction(event){
                 console.log('Country clicked');
-                console.log(event.target);
+                console.log(event.target.value);
+
 
                 this.setState(
-                    {selectedCountry: event.target.id}
+                    {selectedCountry: event.target.value}
                 )
                 
             }
 
             render(){
+                let key= 0;
                 const list = this.props.data.map(
                     country => 
-                    <Country country={country} onClick={this.clickFunction.bind(this)}/>
+                    <li key={key++}><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
                 )
 
                 return(
@@ -106,10 +108,8 @@
         class Country extends React.Component{
             render()
             {
-                let key= 0;
-
                 return(
-                     <li key={key++}><label className="countryName">{this.props.country.name}</label></li>
+                     <label className="countryName">{this.props.country.name}</label>
                 );
             }
         }
