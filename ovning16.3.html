@@ -82,7 +82,7 @@
 
             clickFunction(event){
                 console.log('Country clicked');
-                console.log(event.target.value);
+                console.log(event.target.innerText);
 
                 this.setState(
                     {selectedCountry: event.target.value}
