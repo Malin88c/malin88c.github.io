@@ -109,7 +109,7 @@
             render()
             {
                 return(
-                     <label className="countryName">{this.props.country.name}</label>
+                     <label className="countryName" onClick={this.props.onClick}>{this.props.country.name}</label>
                 );
             }
         }
