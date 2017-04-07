@@ -81,8 +81,7 @@
             }
 
             clickFunction(event){
-                console.log('Country clicked');
-                console.log(event.target.innerText);
+                console.log(event.target.innerText + 'clicked');
 
                 this.setState(
                     {selectedCountry: event.target.value}
