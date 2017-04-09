@@ -1,124 +1,165 @@
+class FilterInput extends React.Component{
 
-class App extends React.Component{
-	constructor(props){
-		super(props);
-
-		this.state = {
-			data: [],
-			numberOfCountries : 0
-
-		}
+  constructor(props){
+   super(props);
 	}
-
-	componentDidMount(){
-
-	let _this = this;
-
-		fetch('http://forverkliga.se/JavaScript/api/simple.php?world')
-		.then(function(response){
-		
-		return response.json();
-		})
-
-		.then(function(json){
-			let count = json.length;
-			_this.setState({data: json, numberOfCountries: count})
-		})
-	}
-
-deleteCountry(countryId) {
-
- let updatedList = this.state.data;
- updatedList.splice(countryId, 1);
- let count = updatedList.length;
-
- this.setState({ list: updatedList, numberOfCountries: count })  
-}  
-
-
-		render(){
-			return(
-			<div>
-				<h3>List of Countries</h3>
-				<CountriesList data={this.state.data} onDelete={this.deleteCountry.bind(this)}/>
-				<h4>Det finns {this.state.numberOfCountries} länder i listan</h4>
-			</div>
-			)
-		}
-
-}
-
-class CountriesList extends React.Component{
-		constructor(props){
-		super(props);
-            this.state = {
-                    selectedCountryId: null, 
-            } 
-		}
-
-		clickFunction(countryId, event) {
-
-		event.stopPropagation();
-
-
-        if (event.target.id === 'deleteBtn') {
-            this.props.onDelete(countryId);
-            this.setState({
-                selectedCountryId: null
-            });
-        } 
-		
-		else {	
-
-			if(this.state.selectedCountryId !== countryId){
-
-				this.setState({
-                selectedCountryId:  countryId
-            });
-			}
-			else{
-				this.setState({			
-                selectedCountryId: null
-            });
-
-			}	
-
-        }
-		}
-
-		render(){
-			const list = this.props.data.map((country, countryId) =>
-            <li
-                onClick={this.clickFunction.bind(this, countryId)}
-                key={countryId}
-                className='list-group'>
-							
-                Country:  {country.name} <br/> 
-				Continent: {country.continent} <br/> 
-                Population: {country.population} <br/> 
-
-				{this.state.selectedCountryId === countryId &&
-                    <button
-                        id="deleteBtn"
-                        onClick={this.clickFunction.bind(this, countryId)}
-                        className={'btn trash-btn'}>
-                        <span className="glyphicon glyphicon-trash"></span>
-                    </button>
-                }
-            </li>);
-
-        return (
-            <div>
-                <ul className='list-group'>
-                    {list}
-                </ul>
-            </div>
-        );
+	 
+     handleChange = (e) => {
+    this.props.filterList(e.target.value);
+  }
+   
+  render(){
 	
+  	return(
+    	<div>
+    		Search:  <input placeholder="Filter Countries" onChange={this.handleChange}></input>
+        <hr/>
+      </div>
+    )
+    }
 }
-}
-	ReactDOM.render(
-		<App/>,
-		document.getElementById('app')
-	)
 
+class Country extends React.Component{
+
+  constructor(props){
+      super(props);
+      this.state = {
+          inEdit: null,
+          editText: null,
+      }
+  }
+
+
+	editName = (countryName) => {
+  	this.setState({ inEdit: 'name', editText: countryName});
+  }
+  
+  editContinent = (continentName) => {
+  	this.setState({ inEdit: 'continent', editText: continentName})
+  }
+  
+  handleChange = (e) => {
+    this.setState({ editText: e.target.value });
+  }
+  
+  
+  endEditName = () => {
+    this.setState({ inEdit: null});
+    this.props.updateCountryName(this.props.name, this.state.editText);
+  }
+  
+  endEditContinent = () =>{
+  console.log('hej');
+  	this.setState({ inEdit: null});
+    this.props.updateContinent(this.props.name, this.state.editText)
+  }
+  
+  render() {
+  	 return (
+    <div onClick={() => this.props.selectCountry(this.props.name)}>
+      	<div>
+                {this.props.name === this.props.selectedCountry ?
+          <button className="btn" onClick={() => this.props.deleteCountry(this.props.name)}>Delete <span className="glyphicon glyphicon-trash"></span></button> : ''
+        }
+        	{this.state.inEdit !== 'name' ?
+          <span onClick={() => this.editName(this.props.name)} className="countryName" >{this.props.name}</span> :
+          <input onChange={this.handleChange}  autoFocus onBlur={() => this.endEditName()} value={this.state.editText} /> }
+        </div>
+        <div>
+        {this.state.inEdit !== 'continent' ?
+                  <span onClick={() => this.editContinent(this.props.continent)}>{this.props.continent}</span> :
+          <input onChange={this.handleChange}  autoFocus onBlur={() => this.endEditContinent()} value={this.state.editText} /> 
+        }       
+        </div>
+
+        <hr/>
+    </div>
+  );
+  }
+
+ 
+};
+
+const CountryList = (props) => {
+	return (
+  	<div>
+        {props.countries.length === 0 ?        
+        	<h3>Loading Countries...</h3> : '' }
+        
+        	{props.countries.map(country => <Country deleteCountry={props.deleteCountry} selectedCountry={props.selectedCountry} updateCountryName={props.updateCountryName} updateContinent={props.updateContinent} selectCountry={props.selectCountry} key={country.name} {...country} />)}
+        <div>Number of countries: {props.countries.length}</div>  
+   	</div>
+    
+  )
+}
+
+class App extends React.Component {
+
+	componentDidMount() {
+    this.getCountries();  
+  }
+
+
+	getCountries = () => {
+  	 axios.get(`https://forverkliga.se/JavaScript/api/simple.php?world`)
+  		.then((response) => {
+      	this.setState({ countries: response.data });
+        this.filterList('');
+  		});
+  }
+  
+  deleteCountry = (country) => {
+		  	this.setState(prevState => ({
+    		countries: prevState.countries.filter(c => c.name != country)
+    }));
+  }
+
+	state = {
+  	countries: [],
+    filteredCountries: [],
+    selectedCountry: null,
+  };
+  
+  selectCountry = (country) => {
+  	this.setState({ selectedCountry: country});
+  }
+  
+  updateCountryName = (countryName, newName) => {
+  	this.state.countries.forEach(function(country) {
+    if (country.name === countryName) {
+        country.name = newName;
+    }
+});
+  }
+  
+  updateContinent = (countryName, newContinent) => {
+  	this.state.countries.forEach(function(country){
+    if(country.name === countryName){
+    	country.continent = newContinent;
+    }
+    })
+  }
+  
+  filterList = (filterText) => {
+  	console.log(filterText);
+    if(filterText.length === 0){
+    	this.setState({filteredCountries: this.state.countries})
+    }
+    else{
+    	let re = new RegExp(filterText, 'gi');
+    	this.setState({filteredCountries: this.state.countries.filter(c => c.name.match(re) || c.continent.match(re))})
+    }
+  }
+  
+  
+	render () {  
+  	return (
+    	<div>
+      <FilterInput filterList={this.filterList} />
+      	<CountryList deleteCountry={this.deleteCountry} selectedCountry={this.state.selectedCountry} selectCountry={this.selectCountry} countries={this.state.filteredCountries} updateCountryName={this.updateCountryName} updateContinent={this.updateContinent} />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
