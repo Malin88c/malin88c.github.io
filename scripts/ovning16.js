@@ -96,17 +96,19 @@ const CountryList = (props) => {
 class App extends React.Component {
 
 	componentDidMount() {
-    this.getCountries();  
-  }
+                
+			let _this = this;
 
+            fetch('https://forverkliga.se/JavaScript/api/simple.php?world')
+            .then(function(response){
+            
+            return response.json();
+            })
 
-	getCountries = () => {
-		let _this = this;
-  	 fetch('https://forverkliga.se/JavaScript/api/simple.php?world')
-  		.then((response) => {
-      	_this.setState({ countries: response.data });
-        _this.filterList('');
-  		});
+            .then(function(json){
+                _this.setState({countries: json})
+				_this.filterList('');
+            })
   }
   
   deleteCountry = (country) => {
