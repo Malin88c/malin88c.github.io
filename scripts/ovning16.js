@@ -127,11 +127,30 @@ class App extends React.Component {
   }
   
   updateCountryName = (countryName, newName) => {
-  	this.state.countries.forEach(function(country) {
-    if (country.name === countryName) {
-        country.name = newName;
+  	
+    if (newName.length === 0){
+    	alert('Country cannot be empty.');
+    	return;
     }
-});
+    
+    let countryAlreadyExists = false;
+  
+  	this.state.countries.forEach(function(country) {
+      if (country.name === newName && newName !== countryName) {
+          alert('Country already exists!');
+      		countryAlreadyExists = true;
+      }
+    });
+    
+    if(!countryAlreadyExists)
+    {
+      this.state.countries.forEach(function(country) {
+        if (country.name === countryName) {
+            country.name = newName;
+        }
+      });
+    }
+  
   }
   
   updateContinent = (countryName, newContinent) => {
@@ -163,5 +182,6 @@ class App extends React.Component {
     )
   }
 }
+
 
 ReactDOM.render(<App />, document.getElementById('app'));
