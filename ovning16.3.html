@@ -79,7 +79,6 @@
 
             clickFunction(event){
                 console.log(event.target.innerText + ' clicked');
-                console.log('Id: ' + event.target.id)
 
                 this.setState(
                     {selectedCountry: event.target.innerText}
@@ -88,16 +87,15 @@
             }
 
             render(){
-                let key= 0;
                 const list = this.props.data.map(
-                    country => 
-                    <li key={key++}><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
+                    (country, index) => 
+                    <li id={index}><Country key={country.name} country={country} onClick={this.clickFunction.bind(this, index)}/></li>
                 )
 
                 return(
                     <div>
-                    <ul>{list}</ul>
-                    <label>Number of countries: {this.props.data.length}</label>
+                        <ul>{list}</ul>
+                        <label>Number of countries: {this.props.data.length}</label>
                     </div>
                 );
             }
@@ -109,7 +107,7 @@
             render()
             {
                 return(
-                    <div>
+                     <div>
                       Country: <label className="countryName" onClick={this.props.onClick}>{this.props.country.name}</label><br/>
                       Continent: <label className="continentName" onClick={this.props.onClick}>{this.props.country.continent}</label><br/>
                       Population: <label className="population" onClick={this.props.onClick}>{this.props.country.population}</label><br/>
