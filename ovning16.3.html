@@ -89,7 +89,7 @@
             render(){
                 const list = this.props.data.map(
                     (country, index) => 
-                    <li id={index}><Country key={country.name} country={country} onClick={this.clickFunction.bind(this, index)}/></li>
+                    <li key={index} id={index}><Country country={country} onClick={this.clickFunction.bind(this, index)}/></li>
                 )
 
                 return(
