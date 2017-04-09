@@ -31,10 +31,7 @@
 
 	<script type="text/babel">
     
-            
-    
-        
-        
+         
         class App extends React.Component{
             constructor(props){
                 super(props);
@@ -90,15 +87,17 @@
             }
 
             render(){
-                let key= -1;
+                let key= 0;
                 const list = this.props.data.map(
                     country => 
                     <li key={key++}><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
                 )
 
                 return(
+                    <div>
                     <ul>{list}</ul>
-                    <p>Number of countries: {key}</p>
+                    <p>{this.props.data.Length()}</p>
+                    </div>
                 );
             }
             
@@ -109,9 +108,9 @@
             render()
             {
                 return(
+                    <div>
                      <label className="countryName" onClick={this.props.onClick}>{this.props.country.name}</label><br/>
-                     <
-
+                     </div>
                 );
             }
         }
