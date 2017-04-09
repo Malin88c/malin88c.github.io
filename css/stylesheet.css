@@ -110,3 +110,7 @@ transform: scale(0.9);
   font-size: 1.25em;
   font-weight: bold;
 }
+
+.searchInput{
+	margin: 20px;
+}

@@ -12,7 +12,7 @@ class FilterInput extends React.Component{
 	
   	return(
     	<div>
-    		Search:  <input placeholder="Filter Countries" onChange={this.handleChange}></input>
+    		Search:  <input placeholder="Filter Countries" onChange={this.handleChange} className="searchInput"></input>
         <hr/>
       </div>
     )
@@ -49,7 +49,6 @@ class Country extends React.Component{
   }
   
   endEditContinent = () =>{
-  console.log('hej');
   	this.setState({ inEdit: null});
     this.props.updateContinent(this.props.name, this.state.editText)
   }
@@ -113,7 +112,7 @@ class App extends React.Component {
   
   deleteCountry = (country) => {
 		  	this.setState(prevState => ({
-    		countries: prevState.countries.filter(c => c.name != country)
+    		filteredCountries: prevState.filteredCountries.filter(c => c.name != country)
     }));
   }
 
