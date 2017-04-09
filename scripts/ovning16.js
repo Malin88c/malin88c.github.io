@@ -101,7 +101,7 @@ class App extends React.Component {
 
 
 	getCountries = () => {
-  	 axios.get(`https://forverkliga.se/JavaScript/api/simple.php?world`)
+  	 fetch(`https://forverkliga.se/JavaScript/api/simple.php?world`)
   		.then((response) => {
       	this.setState({ countries: response.data });
         this.filterList('');
