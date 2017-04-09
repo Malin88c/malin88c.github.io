@@ -96,3 +96,17 @@ li{
 ul{
 	list-style-type: none;
 }
+
+.deleteCountryBtn{
+float:right;
+cursor: pointer;
+}
+
+.deleteCountryBtn:hover{
+transform: scale(0.9);
+}
+
+.countryName{
+  font-size: 1.25em;
+  font-weight: bold;
+}

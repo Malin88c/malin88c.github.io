@@ -59,7 +59,7 @@ class Country extends React.Component{
     <div onClick={() => this.props.selectCountry(this.props.name)}>
       	<div>
                 {this.props.name === this.props.selectedCountry ?
-          <button className="btn" onClick={() => this.props.deleteCountry(this.props.name)}>Delete <span className="glyphicon glyphicon-trash"></span></button> : ''
+          <button className="deleteCountryBtn btn" onClick={() => this.props.deleteCountry(this.props.name)}>Delete <span className="glyphicon glyphicon-trash"></span></button> : ''
         }
         	{this.state.inEdit !== 'name' ?
           <span onClick={() => this.editName(this.props.name)} className="countryName" >{this.props.name}</span> :
