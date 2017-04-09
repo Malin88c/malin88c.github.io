@@ -77,9 +77,9 @@
                 }
             }
 
-            clickFunction(event){
+            clickFunction(event, countryId){
                 console.log(event.target.innerText + ' clicked');
-                console.log('Id: ' + event.target.id)
+                console.log('Id: ' + countryId)
 
                 this.setState(
                     {selectedCountry: event.target.innerText}
@@ -88,10 +88,9 @@
             }
 
             render(){
-                let key= 0;
                 const list = this.props.data.map(
-                    country => 
-                    <li key={key++}><Country country={country} onClick={this.clickFunction.bind(this)}/></li>
+                    (country, countryId) => 
+                    <li key={countryId}><Country country={country} onClick={this.clickFunction.bind(this, countryId)}/></li>
                 )
 
                 return(
