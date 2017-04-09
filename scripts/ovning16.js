@@ -101,10 +101,11 @@ class App extends React.Component {
 
 
 	getCountries = () => {
+		let _this = this;
   	 fetch('https://forverkliga.se/JavaScript/api/simple.php?world')
   		.then((response) => {
-      	this.setState({ countries: response.data });
-        this.filterList('');
+      	_this.setState({ countries: response.data });
+        _this.filterList('');
   		});
   }
   
