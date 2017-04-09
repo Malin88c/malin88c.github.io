@@ -109,9 +109,9 @@
             {
                 return(
                     <div>
-                     <label className="countryName" onClick={this.props.onClick}>{this.props.country.name}</label><br/>
-                      <label className="continentName" onClick={this.props.onClick}>{this.props.country.continent}</label><br/>
-                       <label className="population" onClick={this.props.onClick}>{this.props.country.population}</label><br/>
+                     <label className="countryName" onClick={this.props.onClick}>Country: {this.props.country.name}</label><br/>
+                      <label className="continentName" onClick={this.props.onClick}>Continent: {this.props.country.continent}</label><br/>
+                       <label className="population" onClick={this.props.onClick}>Population: {this.props.country.population}</label><br/>
                      </div>
                 );
             }
